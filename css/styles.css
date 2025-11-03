@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto+Slab:400,700|Roboto:400,500,700,900&display=swap');
+
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+/*  IMAGEN DE PORTADA    */
+.home-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.home-img img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/*  SECCIÓN DE BIENVENIDA */
+.home-welcome {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home-welcome h1 {
+  font-family: 'Roboto Slab', serif; 
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.home-welcome p {
+  font-family: 'Roboto Slab', serif;
+  max-width: 700px;
+  margin: auto;
+  background-color: #d6c5e8;
+  padding: 15px 20px;
+  border-radius: 6px;
+  line-height: 1.6;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/*  SECCIÓN DE POSTS / CARDS */
+.home-card-container {
+  background-color: #fff;
+  padding: 20px 50px 60px;
+  text-align: center;
+}
+
+.home-card-container h3 {
+  font-family: 'Roboto Slab', serif;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+/* Cada card */
+.home-card-container .card-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  min-height: 450px; 
+  margin: 0 1.5% 40px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+/*Leve movimiento en las cards cuando pasa el cursor*/
+.home-card-container .card-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Imagen */
+.home-card-container .card-container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Título de cada card */
+.home-card-container .card-container h4 {
+  font-family: 'Roboto Slab', serif; 
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 15px 15px 10px;
+  color: #111;
+}
+
+/* Descripción de la card */
+.home-card-container .card-container p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0 15px 15px;
+  color: #444;
+}
+
+/* Botón dentro de la card */
+.card-button {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: #b8afcc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #6f628d;
+    transform: translateY(-2px);
+}
+
+.card-button::after {
+    content: '→';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card-button:hover::after {
+    transform: translateX(5px);
+}
+
+/* Estilos para el footer */
+footer {
+    background-color:#6f628d; 
+    color: white; 
+    padding: 20px 0; 
+    text-align: center; 
+}
+
+.footer-content {
+    margin-bottom: 20px; 
+}
+
+.footer-section {
+    margin-bottom: 15px; 
+}
+
+.footer-section h3 {
+    font-family: 'Roboto Slab', serif; 
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+}
+
+.header-icons-container {
+    margin: 10px 0; 
+}
+
+.icons a {
+    margin: 0 10px; 
+    color: white; 
+    font-size: 1.5em; 
+    transition: color 0.3s ease; 
+}
+
+.flaticon-001-facebook:hover {
+    color: #3b5998;
+}
+
+.flaticon-002-twitter:hover {
+    color: #1da1f2; 
+}
+
+.flaticon-011-instagram:hover {
+    color: #ff0f83; 
+}
+
+.flaticon-010-linkedin:hover {
+    color: #0077b5; 
+}
+
+.flaticon-008-youtube:hover {
+    color: #ff0000; 
+}
+.footer-info {
+    font-size: 0.9em; 
+    margin-top: 10px; 
+}
+
+.footer-info a {
+    color: #48cfad;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline; 
+}
+
+/* Estilos para la navegación principal */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6f628d;
+    padding: 15px 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el logo */
+.nav-brand a {
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand a:hover {
+    color: #d6c5e8;
+}
+
+/* Estilos para la sección de perfil */
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.profile-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid white;
+}
+
+.profile-link span {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .main-nav {
+        padding: 15px 20px;
+    }
+
+    .nav-brand a {
+        font-size: 1.2em;
+    }
+
+    .profile-link span {
+        display: none;
+    }
+
+    .profile-avatar {
+        margin-right: 0;
+    }
+}
