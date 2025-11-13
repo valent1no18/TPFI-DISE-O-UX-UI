@@ -919,44 +919,5 @@ html, body {
     margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contenedor-header-perfil {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-    }
-    
-    .estadisticas-perfil {
-        gap: 25px;
-    }
-    
-    .grid-publicaciones-recientes {
-        grid-template-columns: 1fr;
-    }
-    
-    .grid-habilidades {
-        grid-template-columns: 1fr;
-    }
-    
-    .informacion-header-perfil h1 {
-        font-size: 2em;
-    }
-}
 
-@media (max-width: 480px) {
-    .estadisticas-perfil {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .header-perfil {
-        padding: 40px 0;
-    }
-    
-    .avatar-perfil-grande img {
-        width: 120px;
-        height: 120px;
-    }
-}
 
