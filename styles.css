@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto+Slab:400,700|Roboto:400,500,700,900&display=swap');
 
-
 html, body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   color: black;
+
 }
 
 /*  IMAGEN DE PORTADA    */
-.home-img {
+.imagen-portada {
   width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-.home-img img {
+.imagen-portada img {
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -24,14 +24,13 @@ html, body {
   display: block;
 }
 
-
 /*  SECCIÓN DE BIENVENIDA */
-.home-welcome {
+.bienvenida {
   text-align: center;
   padding: 40px 20px;
 }
 
-.home-welcome h1 {
+.bienvenida h1 {
   font-family: 'Roboto Slab', serif; 
   font-size: 2em;
   font-weight: 700;
@@ -39,7 +38,7 @@ html, body {
   color: #111;
 }
 
-.home-welcome p {
+.bienvenida p {
   font-family: 'Roboto Slab', serif;
   max-width: 700px;
   margin: auto;
@@ -51,14 +50,14 @@ html, body {
   font-size: 0.95rem;
 }
 
-/*  SECCIÓN DE POSTS / CARDS */
-.home-card-container {
+/*  SECCIÓN DE PUBLICACIONES / TARJETAS */
+.contenedor-tarjetas {
   background-color: #fff;
   padding: 20px 50px 60px;
   text-align: center;
 }
 
-.home-card-container h3 {
+.contenedor-tarjetas h3 {
   font-family: 'Roboto Slab', serif;
   border-bottom: 1px solid #ddd;
   padding-bottom: 20px;
@@ -67,13 +66,19 @@ html, body {
   color: #111;
 }
 
-/* Cada card */
-.home-card-container .card-container {
-  display: inline-block;
-  vertical-align: top;
-  width: 350px;
+.contenedor-tarjetas-grid {
+  display: flex;
+  flex-wrap: nowrap; 
+  justify-content: flex-start;
+  gap: 20px; 
+  overflow-x: auto; 
+}
+
+
+/* Cada tarjeta */
+.tarjeta {
+  flex: 0 0 350px;
   min-height: 450px; 
-  margin: 0 1.5% 40px;
   text-align: left;
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -82,49 +87,101 @@ html, body {
   overflow: hidden;
   position: relative;
   padding-bottom: 60px;
+  transition: all 0.3s ease;
 }
 
-/*Leve movimiento en las cards cuando pasa el cursor*/
-.home-card-container .card-container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Imagen */
-.home-card-container .card-container img {
+.imagen-tarjeta {
   width: 100%;
   height: 180px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  overflow: hidden;
 }
 
-/* Título de cada card */
-.home-card-container .card-container h4 {
+.imagen-tarjeta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .imagen-tarjeta img {
+  transform: scale(1.05);
+}
+
+/* FOTO DEL AUTOR */
+.autor-grande {
+  width: 60px;
+  height: 60px;
+  margin: -30px auto 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.autor-grande img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Título de cada tarjeta */
+.tarjeta h4 {
   font-family: 'Roboto Slab', serif; 
   font-size: 1.1em;
   font-weight: 700;
   margin: 15px 15px 10px;
   color: #111;
+  text-align: center;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Descripción de la card */
-.home-card-container .card-container p {
+/* Descripción de la tarjeta */
+.tarjeta p {
   font-family: 'Roboto', sans-serif;
   font-size: 0.95em;
   line-height: 1.6;
   margin: 0 15px 15px;
   color: #444;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
 }
 
-/* Botón dentro de la card */
-.card-button {
+/* Estadísticas */
+.estadisticas-tarjeta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.9em;
+  color: #555;
+  margin: 15px 0;
+  padding: 0 15px;
+}
+
+/* Botón dentro de la tarjeta */
+.boton-tarjeta {
   position: absolute;
   bottom: 15px;
-  left: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   margin: 0;
-  padding: 10px 20px;
+  padding: 10px 25px;
   background-color: #b8afcc;
   color: white;
   border: none;
@@ -134,54 +191,360 @@ html, body {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-.card-button:hover {
+.boton-tarjeta:hover {
     background-color: #6f628d;
-    transform: translateY(-2px);
+    transform: translateX(-50%) translateY(-2px);
 }
 
-.card-button::after {
+.boton-tarjeta::after {
     content: '→';
     margin-left: 8px;
     transition: transform 0.3s ease;
 }
 
-.card-button:hover::after {
+.boton-tarjeta:hover::after {
     transform: translateX(5px);
 }
 
-/* Estilos para el footer */
-footer {
+/* Estilos para la página de detalle de publicación */
+.contenido-principal {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.detalle-publicacion {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.encabezado-publicacion {
+    padding: 30px 30px 20px;
+}
+
+.informacion-autor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-autor {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.detalles-autor {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre-autor {
+    font-weight: 700;
+    color: #333;
+    font-size: 1em;
+}
+
+.fecha-publicacion {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.titulo-publicacion {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.subtitulo-publicacion {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    font-style: italic;
+    border-left: 3px solid #b8afcc;
+    padding-left: 15px;
+}
+
+.imagen-publicacion {
+    width: 100%;
+    margin: 0;
+}
+
+.imagen-publicacion img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.contenido-publicacion {
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #333;
+}
+
+.contenido-publicacion p {
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+.contenido-publicacion h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5em;
+    color: #111;
+    margin: 30px 0 15px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.estadisticas-publicacion {
+    padding: 0 30px 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.contenedor-estadisticas {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.item-estadistica {
+    font-size: 1em;
+    color: #555;
+}
+
+.acciones-publicacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.boton-volver {
+    background-color: #b8afcc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.boton-volver:hover {
+    background-color: #6f628d;
+    transform: translateY(-2px);
+}
+
+.compartir-redes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.compartir-redes span {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.compartir-redes a {
+    color: #6f628d;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.compartir-redes a:hover {
+    color: #b8afcc;
+}
+
+/* Estilos para la sección Sobre el Autor */
+.seccion-autor {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-top: 40px;
+}
+
+.contenedor-autor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.autor-principal {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.encabezado-autor h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8em;
+    color: #111;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b8afcc;
+}
+.contenido-autor {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 20px;
+  text-align: left; 
+}
+
+.avatar-autor-grande {
+  flex-shrink: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.avatar-autor-grande img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #b8afcc; 
+}
+
+.informacion-autor {
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+}
+
+.informacion-autor h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.4em;
+  color: #111;
+  margin-bottom: 10px; 
+}
+
+.biografia-autor {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 15px; 
+  font-size: 0.95em;
+}
+.boton-autor {
+    display: inline-block;
+    background-color: #b8afcc;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.boton-autor:hover {
+    background-color: #6f628d;
+    transform: translateY(-2px);
+}
+
+/* Estilos para publicaciones populares */
+.publicaciones-populares {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.encabezado-publicaciones h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-publicacion {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-publicacion:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.item-publicacion h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95em;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.fecha-publicacion-popular {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* Estilos para el pie de página */
+.pie-pagina {
     background-color:#6f628d; 
     color: white; 
     padding: 20px 0; 
     text-align: center; 
 }
 
-.footer-content {
+.contenido-pie {
     margin-bottom: 20px; 
 }
 
-.footer-section {
+.seccion-pie {
     margin-bottom: 15px; 
 }
 
-.footer-section h3 {
+.seccion-pie h3 {
     font-family: 'Roboto Slab', serif; 
     font-size: 1.5em; 
     margin-bottom: 10px; 
 }
 
-.header-icons-container {
+.contenedor-iconos-cabecera {
     margin: 10px 0; 
 }
 
-.icons a {
+.iconos a {
     margin: 0 10px; 
     color: white; 
     font-size: 1.5em; 
     transition: color 0.3s ease; 
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.iconos a span {
+    text-decoration: none !important;
+    border: none !important;
 }
 
 .flaticon-001-facebook:hover {
@@ -203,22 +566,23 @@ footer {
 .flaticon-008-youtube:hover {
     color: #ff0000; 
 }
-.footer-info {
+
+.informacion-pie {
     font-size: 0.9em; 
     margin-top: 10px; 
 }
 
-.footer-info a {
+.informacion-pie a {
     color: #48cfad;
     text-decoration: none;
 }
 
-.footer-info a:hover {
+.informacion-pie a:hover {
     text-decoration: underline; 
 }
 
 /* Estilos para la navegación principal */
-.main-nav {
+.navegacion-principal {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,7 +592,7 @@ footer {
 }
 
 /* Estilos para el logo */
-.nav-brand a {
+.marca-navegacion a {
     color: white;
     font-family: 'Roboto Slab', serif;
     font-size: 1.5em;
@@ -237,17 +601,17 @@ footer {
     transition: color 0.3s ease;
 }
 
-.nav-brand a:hover {
+.marca-navegacion a:hover {
     color: #d6c5e8;
 }
 
 /* Estilos para la sección de perfil */
-.profile-section {
+.seccion-perfil {
     display: flex;
     align-items: center;
 }
 
-.profile-link {
+.enlace-perfil {
     display: flex;
     align-items: center;
     color: white;
@@ -257,11 +621,11 @@ footer {
     transition: all 0.3s ease;
 }
 
-.profile-link:hover {
+.enlace-perfil:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.profile-avatar {
+.avatar-perfil {
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -269,26 +633,330 @@ footer {
     border: 2px solid white;
 }
 
-.profile-link span {
+.enlace-perfil span {
     font-size: 0.9em;
     font-weight: 500;
 }
 
-/* Responsive design */
-@media (max-width: 900px) {
-    .main-nav {
-        padding: 15px 20px;
-    }
+/* Eliminar cualquier subrayado en hover y focus */
+.iconos a:hover,
+.iconos a:focus,
+.iconos a:active {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
 
-    .nav-brand a {
-        font-size: 1.2em;
-    }
+.iconos a:hover span,
+.iconos a:focus span,
+.iconos a:active span {
+    text-decoration: none !important;
+    border: none !important;
+}
 
-    .profile-link span {
-        display: none;
-    }
+/* Estilos para la página de perfil */
+.header-perfil {
+    background: linear-gradient(135deg, #6f628d, #b8afcc);
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+}
 
-    .profile-avatar {
-        margin-right: 0;
+.contenedor-header-perfil {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.avatar-perfil-grande img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.informacion-header-perfil h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.titulo-profesional {
+    font-size: 1.2em;
+    opacity: 0.9;
+    margin: 0 0 5px 0;
+}
+
+.ubicacion {
+    font-size: 1em;
+    opacity: 0.8;
+    margin: 0 0 25px 0;
+}
+
+.estadisticas-perfil {
+    display: flex;
+    gap: 40px;
+}
+
+.estadistica {
+    text-align: center;
+}
+
+.numero {
+    display: block;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.texto {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Sección Biografía */
+.seccion-biografia {
+    padding: 40px 0;
+}
+
+.contenedor-biografia {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contenedor-biografia h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+    color: #111;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.biografia-contenido p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+/* Publicaciones Recientes */
+.seccion-publicaciones-recientes {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.contenedor-publicaciones {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contenedor-publicaciones h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+    color: #111;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.lista-publicaciones-recientes {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tarjeta-reciente {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    min-height: 200px;
+}
+
+.tarjeta-reciente:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.imagen-tarjeta-reciente {
+    flex: 0 0 250px;
+    height: auto;
+    overflow: hidden;
+}
+
+.imagen-tarjeta-reciente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-reciente:hover .imagen-tarjeta-reciente img {
+    transform: scale(1.05);
+}
+
+.contenido-tarjeta-reciente {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fecha-tarjeta {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contenido-tarjeta-reciente h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.contenido-tarjeta-reciente p {
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    flex-grow: 1;
+}
+
+.contenido-inferior-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.estadisticas-tarjeta-reciente {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.boton-tarjeta-reciente {
+    display: inline-block;
+    background-color: #b8afcc;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.boton-tarjeta-reciente:hover {
+    background-color: #6f628d;
+    transform: translateY(-2px);
+}
+
+/* Sección Habilidades */
+.seccion-habilidades {
+    padding: 60px 0;
+}
+
+.contenedor-habilidades {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contenedor-habilidades h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+    color: #111;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.grid-habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.habilidad {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.habilidad:hover {
+    transform: translateY(-5px);
+}
+
+.habilidad h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.habilidad p {
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-header-perfil {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    
+    .estadisticas-perfil {
+        gap: 25px;
+    }
+    
+    .grid-publicaciones-recientes {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-habilidades {
+        grid-template-columns: 1fr;
+    }
+    
+    .informacion-header-perfil h1 {
+        font-size: 2em;
     }
 }
+
+@media (max-width: 480px) {
+    .estadisticas-perfil {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .header-perfil {
+        padding: 40px 0;
+    }
+    
+    .avatar-perfil-grande img {
+        width: 120px;
+        height: 120px;
+    }
+}
+

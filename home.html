@@ -3,81 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descripción de tu sitio web">
-    <title>¡Te doy la bienvida a mi blog!</title>
+    <meta name="description" content="Blog personal con artículos sobre diversos temas de interés">
+    <title>¡Te doy la bienvenida al blog!</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/font/flaticon.css">
 </head>
 <body>
     <header>
-        <nav class="main-nav">
-            <div class="nav-brand">
+        <nav class="navegacion-principal">
+            <div class="marca-navegacion">
                 <a href="home.html">Mi Blog</a>
             </div>
 
-            <div class="profile-section">
-                <a href="/sobre-mi" class="profile-link">
-                    <img src="/assets/img/perfil.png" alt="Mi foto" class="profile-avatar">
+            <div class="seccion-perfil">
+                <a href="/perfil.html" class="enlace-perfil">
+                    <img src="/assets/img/perfil.png" alt="Mi foto" class="avatar-perfil">
                     <span>Sobre Mí</span>
                 </a>
             </div>
         </nav>
     </header>
 
-    <main class="home-main">
-        <div class="home-img">
+    <main class="contenido-principal">
+        <div class="imagen-portada">
             <img src="/assets/img/home.png" alt="Imagen de portada del blog">
         </div>
 
-        <section class="home-welcome">
-            <h1>¡Te doy la bienvenida a mi blog!</h1>
+        <section class="bienvenida">
+            <h1>¡Te doy la bienvenida al blog!</h1>
             <p>
-                En este espacio comparto mis pensamientos, vivencias y puntos de vista sobre 
+                En este espacio compartimos nuestros pensamientos, vivencias y puntos de vista sobre 
                 diversos temas. Espero que el contenido te resulte interesante e ilustrativo. 
                 ¡Que disfrutes la lectura!
             </p>
         </section>
 
-        <section class="home-card-container">
+        <section class="contenedor-tarjetas">
             <h3>Todos los blogs</h3>
-            <article class="card-container">
-                <img src="/assets/img/card1.png" alt="">
-                <h4>¿Conversaciones que fluyen solas? 
-                    La ciencia y la espiritualidad detrás de la "química" instantánea.</h4>
-                <p>
-                    Conocí a una persona y en 5 minutos sentí que la conocía de toda la vida. 
-                    No era desesperación, era la calma profunda de reencontrarse con un alma familiar.
-                </p>
-                <a href="/detalle-blog.html" class="card-button">Leer mas</a>
-            </article>
-            <article class="card-container">
-                <img src="/assets/img/card2.png" alt="">
-                <h4>Guía definitiva para los candados del amor en la Torre Namsan</h4>
-                <p>¿Dónde comprar el candado más barato? ¿Qué escribir? ¿Cuándo ir? Resuelvo todas 
-                    tus dudas para que tu experiencia sea perfecta y no una estafa.
-                </p>
-                <a href="/detalle-blog.html" class="card-button">Leer mas</a>
-            </article>
-            <article class="card-container">
-                <img src="/assets/img/card3.jpg" alt="">
-                <h4>Más allá del código: Cómo destacar en las entrevistas culturales</h4>
-                <p>
-                    Había dominado los algoritmos, pero una pregunta sobre un proyecto fallido casi me cuesta la oferta. 
-                    Descubre cómo prepararte para la entrevista cultural, la prueba que define tu ingreso al equipo soñado.
-                </p>
-                <a href="/detalle-blog.html" class="card-button">Leer mas</a>
-            </article>
+
+            <div class="contenedor-tarjetas-grid">
+                <article class="tarjeta">
+                    <div class="imagen-tarjeta">
+                        <img src="/assets/img/card1.png" alt="Imagen blog 1">
+                    </div>
+
+                    <div class="autor-grande">
+                        <img src="/assets/img/autor1.png" alt="Autor">
+                    </div>
+
+                    <h4>¿Conversaciones que fluyen solas?</h4>
+
+                    <p>
+                        Conocí a una persona y en 5 minutos sentí que la conocía de toda la vida.
+                        No era desesperación, era calma de reencontrarse con un alma familiar.
+                    </p>
+
+                    <div class="estadisticas-tarjeta">
+                        <span>❤️ 57</span>
+                        <span>💬 6</span>
+                        <span>👁 138</span>
+                    </div>
+
+                    <a href="card1.html" class="boton-tarjeta">Leer más</a>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="imagen-tarjeta">
+                        <img src="/assets/img/card2.png" alt="Imagen blog 2">
+                    </div>
+
+                    <div class="autor-grande">
+                        <img src="/assets/img/autor2.png" alt="Autor">
+                    </div>
+
+                    <h4>Guía definitiva para los candados del amor en la Torre Namsan</h4>
+
+                    <p>
+                        ¿Dónde comprar el candado más barato? ¿Qué escribir? ¿Cuándo ir?
+                        Todo para que tu experiencia sea perfecta.
+                    </p>
+
+                    <div class="estadisticas-tarjeta">
+                        <span>❤️ 43</span>
+                        <span>💬 9</span>
+                        <span>👁 201</span>
+                    </div>
+
+                    <a href="/card2.html" class="boton-tarjeta">Leer más</a>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="imagen-tarjeta">
+                        <img src="/assets/img/card3.jpg" alt="Imagen blog 3">
+                    </div>
+
+                    <div class="autor-grande">
+                        <img src="/assets/img/autor3.png" alt="Autor">
+                    </div>
+
+                    <h4>Más allá del código: Cómo destacar en entrevistas culturales</h4>
+
+                    <p>
+                        La pregunta que casi me costó la oferta. Descubre cómo prepararte realmente.
+                    </p>
+
+                    <div class="estadisticas-tarjeta">
+                        <span>❤️ 72</span>
+                        <span>💬 4</span>
+                        <span>👁 310</span>
+                    </div>
+
+                    <a href="/card3.html" class="boton-tarjeta">Leer más</a>
+                </article>
+            </div>
+
         </section>
+
     </main>
 
-
-    <footer>
-        <div class="footer-content">
-            
-            <div class="footer-section">
+    <footer class="pie-pagina">
+        <div class="contenido-pie">
+            <div class="seccion-pie">
                 <h3>¡Contáctanos!</h3>
-                <section class="header-icons-container">
-                    <div class="icons">
+                <section class="contenedor-iconos-cabecera">
+                    <div class="iconos">
                         <a href="/"><span class="flaticon-001-facebook"></span></a>
                         <a href="/"><span class="flaticon-002-twitter"></span></a>
                         <a href="/"><span class="flaticon-011-instagram"></span></a>
@@ -88,12 +137,10 @@
             </div>
         </div>
 
-        <div class="footer-info">
+        <div class="informacion-pie">
             <p>© 2025 Mi Blog Personal. Todos los derechos reservados.</p>
             <p><a href="/politica-privacidad">Política de Privacidad</a> | <a href="/terminos">Términos de Uso</a></p>
         </div>
     </footer>
-
-
 </body>
 </html>
